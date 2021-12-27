@@ -25,5 +25,18 @@ for (i=0; i<10; i++) {
 }
 
 function operate(op, x, y) {
-
+    switch (op) {
+        case 'add': 
+            add([x, y])
+            break
+        case 'subtract':
+            subtract([x, y])
+            break
+        case 'multiply':
+            multiply([x, y])
+            break
+        case 'divide':
+            divide([x, y])
+            break
+    }
 };
