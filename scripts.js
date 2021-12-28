@@ -14,15 +14,31 @@ const divide = function(ar) {
     return ar.length ? ar.reduce((a, b) => a / b) : 0
 };
 
-const container = document.querySelector("#container")
+const numberBtns = document.querySelector('#number-btns')
 
 for (i=0; i<10; i++) {
-    const numButton = document.createElement("button")
+    const numButton = document.createElement('button')
     numButton.textContent = i
 
-    container.appendChild(numButton)
-
+    numberBtns.appendChild(numButton)
 }
+
+
+
+let displayValues = []
+
+Array.from(numberBtns.querySelectorAll('button')).map(numButton => {
+        numButton.addEventListener('click', function() {
+            displayValues.push(numButton.innerText)
+            console.log(displayValues)
+        })
+    })
+
+const clearDisplay = document.querySelector('#clear')
+clearDisplay.addEventListener('click', function() {
+    displayValues = []
+    console.log(displayValues)
+})
 
 function operate(op, x, y) {
     switch (op) {

@@ -1,6 +1,7 @@
 body {
     display: flex;
     justify-content: center;
+    align-items: center;
 }
 
 .container {
@@ -8,9 +9,24 @@ body {
     padding: 20px;
 }
 
+.operators {
+    display: grid;
+    grid-template-columns: repeat(5, auto);
+    gap: 10px;
+    padding: 10px 0px;
+}
+
+.numbers {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    gap: 10px;
+    padding: 10px 0px;
+}
+
 .op-button {
     background-color: darkblue;
     border: none;
+    border-radius: 5px;
     color: white;
     padding: 5px 8px;
 }
@@ -18,5 +34,20 @@ body {
 .equal-button {
     background-color: yellow;
     border: none;
+    border-radius: 5px;
+    padding: 5px 8px;
+}
+
+.screen {
+    background-color: gray;
+    padding: 5px 8px;
+}
+
+.clear-button {
+    background-color: pink;
+    border-width: 1px;
+    border-color: palevioletred;
+    border-radius: 5px;
+    width: 200px;
     padding: 5px 8px;
 }
