@@ -40,6 +40,31 @@ clearDisplay.addEventListener('click', function() {
     console.log(displayValues)
 })
 
+
+const operatorBtns = document.querySelector('#operator-btns')
+let op = ''
+
+Array.from(operatorBtns.querySelectorAll('button')).map(opButton => {
+    opButton.addEventListener('click', function() {
+        switch (opButton) {
+            case document.querySelector('#add-btn'):
+                op = 'add'
+                break
+            case document.querySelector('#sub-btn'):
+                op = 'subtract'
+                break
+            case document.querySelector('#mult-btn'):
+                op = 'multiply'
+                break
+            case document.querySelector('#divi-btn'): 
+                op = 'divide'
+                break
+        }
+        return op
+    })
+})
+
+
 function operate(op, x, y) {
     switch (op) {
         case 'add': 
@@ -56,3 +81,8 @@ function operate(op, x, y) {
             break
     }
 };
+
+const eqBtn = document.querySelector('#eq-btn')
+eqBtn.addEventListener('click', function() {
+    operate(op, x, y)
+})
