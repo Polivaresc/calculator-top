@@ -21,68 +21,92 @@ for (i=0; i<10; i++) {
     numButton.textContent = i
 
     numberBtns.appendChild(numButton)
+
+    numButton.addEventListener('click', function() {
+        const lastValue = inputArray.pop()
+        if (isNaN(lastValue)) {
+            inputArray.push(lastValue)
+            inputArray.push(numButton.innerText)
+        } else {
+            if (parseInt(lastValue) === 0) {
+                inputArray.push(numButton.innerText)
+            } else {
+                inputArray.push(lastValue.toString() + numButton.innerText)
+            }
+        }
+        updateScreen()
+    })
 }
 
 
 
-let displayValues = []
+let inputArray = [0]
 
-Array.from(numberBtns.querySelectorAll('button')).map(numButton => {
-        numButton.addEventListener('click', function() {
-            displayValues.push(numButton.innerText)
-            console.log(displayValues)
-        })
-    })
-
-const clearDisplay = document.querySelector('#clear')
-clearDisplay.addEventListener('click', function() {
-    displayValues = []
-    console.log(displayValues)
+const clearScreen = document.querySelector('#clear')
+clearScreen.addEventListener('click', function() {
+    inputArray = [0]
+    updateScreen()
 })
 
 
 const operatorBtns = document.querySelector('#operator-btns')
-let op = ''
+
 
 Array.from(operatorBtns.querySelectorAll('button')).map(opButton => {
     opButton.addEventListener('click', function() {
         switch (opButton) {
             case document.querySelector('#add-btn'):
-                op = 'add'
+                newOperator('add')
                 break
             case document.querySelector('#sub-btn'):
-                op = 'subtract'
+                newOperator('subtract')
                 break
             case document.querySelector('#mult-btn'):
-                op = 'multiply'
+                newOperator('multiply')
                 break
             case document.querySelector('#divi-btn'): 
-                op = 'divide'
+                newOperator('divide')
+                break
+            case document.querySelector('#eq-btn'): 
+                inputArray = [operate(inputArray[1], parseInt(inputArray[0]), parseInt(inputArray[2]))]
                 break
         }
-        return op
+        updateScreen()
     })
 })
 
+function newOperator(op) {
+    const lastValue = inputArray.pop()
+    if (isNaN(lastValue)) {
+        inputArray.push(op)
+    } else if (inputArray.length > 1) {
+        const result = operate(inputArray[1], parseInt(inputArray[0]), parseInt(lastValue))
+        inputArray = [result, op]
+    } else {
+        inputArray.push(lastValue)
+        inputArray.push(op)
+    }
+}
 
 function operate(op, x, y) {
     switch (op) {
         case 'add': 
-            add([x, y])
-            break
+            return add([x, y])
         case 'subtract':
-            subtract([x, y])
-            break
+            return subtract([x, y])
         case 'multiply':
-            multiply([x, y])
-            break
+            return multiply([x, y])
         case 'divide':
-            divide([x, y])
-            break
+            return divide([x, y])
     }
 };
 
-const eqBtn = document.querySelector('#eq-btn')
-eqBtn.addEventListener('click', function() {
-    operate(op, x, y)
-})
+function updateScreen() {
+    let lastValue = inputArray[inputArray.length - 1] 
+    if (isNaN(lastValue)) {
+        lastValue = inputArray[inputArray.length - 2] 
+    }
+
+    const screen = document.querySelector('#screen')
+    screen.innerText = lastValue
+}
