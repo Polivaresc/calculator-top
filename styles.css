@@ -4,49 +4,72 @@ body {
 }
 
 .container {
-    background-color: gainsboro;
+    background-color: #15232e;
     padding: 20px;
 }
 
-.operators {
+#operators {
     display: grid;
     grid-template-columns: repeat(5, auto);
-    gap: 10px;
-    padding: 10px 0px;
+    gap: 5px;
+    padding: 20px 0px 0px 5px;
 }
 
 .numbers {
     display: grid;
     grid-template-columns: repeat(2, auto);
-    gap: 10px;
+    gap: 5px;
     padding: 10px 0px;
 }
 
 .op-button {
-    background-color: darkblue;
+    font-weight: bold;
+    background-color: #3A9BDC;
     border: none;
     border-radius: 5px;
     color: white;
-    padding: 5px 8px;
+    padding: 8px 10px;
 }
 
-.equal-button {
-    background-color: yellow;
+.op-button:hover {
+    background-color: #0020C2;
+}
+
+button {
+    font-size: medium;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+#eq-btn {
+    font-weight: bold;
+    background-color: #FFE87C;
     border: none;
     border-radius: 5px;
-    padding: 5px 8px;
+    padding: 8px 10px;
+}
+
+#eq-btn:hover {
+    background-color: #FBB117;
 }
 
 .screen {
     background-color: gray;
-    padding: 5px 8px;
+    padding: 10px 10px;
 }
 
-.clear-button {
-    background-color: pink;
+#clear {
+    background-color: #E3B1D2;
     border-width: 1px;
-    border-color: palevioletred;
+    border-color: #E3B1D2;
     border-radius: 5px;
     width: 200px;
-    padding: 5px 8px;
+    padding: 8px 10px;
+}
+
+#clear:hover {
+    background-color: #6C4675;
+    border-color: #6C4675;
 }

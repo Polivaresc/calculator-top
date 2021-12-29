@@ -14,13 +14,13 @@ const divide = function(ar) {
     return ar.length ? ar.reduce((a, b) => a / b) : 0
 };
 
-const numberBtns = document.querySelector('#number-btns')
+const numButtons = document.querySelector('#number-btns')
 
 for (i=0; i<10; i++) {
     const numButton = document.createElement('button')
     numButton.textContent = i
 
-    numberBtns.appendChild(numButton)
+    numButtons.appendChild(numButton)
 
     numButton.addEventListener('click', function() {
         const lastValue = inputArray.pop()
@@ -38,8 +38,6 @@ for (i=0; i<10; i++) {
     })
 }
 
-
-
 let inputArray = [0]
 
 const clearScreen = document.querySelector('#clear')
@@ -48,11 +46,9 @@ clearScreen.addEventListener('click', function() {
     updateScreen()
 })
 
+const opButtons = document.querySelector('#operators')
 
-const operatorBtns = document.querySelector('#operator-btns')
-
-
-Array.from(operatorBtns.querySelectorAll('button')).map(opButton => {
+Array.from(opButtons.querySelectorAll('button')).map(opButton => {
     opButton.addEventListener('click', function() {
         switch (opButton) {
             case document.querySelector('#add-btn'):
