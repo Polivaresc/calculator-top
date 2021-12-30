@@ -5,7 +5,10 @@ body {
 
 .container {
     background-color: #15232e;
-    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 15px 15px 15px #92a0ad;
+    padding: 30px;
+    margin-top: 50px;
 }
 
 #operators {
@@ -56,7 +59,10 @@ button:hover {
 }
 
 .screen {
-    background-color: gray;
+    font-size: large;
+    text-align: right;
+    background-color: #a9a9a9;
+    box-shadow: 6px 6px 15px #3f3f3f inset;
     padding: 10px 10px;
 }
 

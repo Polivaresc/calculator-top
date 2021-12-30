@@ -104,5 +104,6 @@ function updateScreen() {
     }
 
     const screen = document.querySelector('#screen')
-    screen.innerText = lastValue
+    screen.innerText = Math.round(lastValue * 10000) / 10000
+
 }
