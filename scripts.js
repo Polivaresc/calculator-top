@@ -64,7 +64,9 @@ Array.from(opButtons.querySelectorAll('button')).map(opButton => {
                 newOperator('divide')
                 break
             case document.querySelector('#eq-btn'): 
-                inputArray = [operate(inputArray[1], parseInt(inputArray[0]), parseInt(inputArray[2]))]
+                if (inputArray.length > 2) {
+                    inputArray = [operate(inputArray[1], parseInt(inputArray[0]), parseInt(inputArray[2]))]
+                }
                 break
         }
         updateScreen()
